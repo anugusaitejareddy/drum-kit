@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drum kit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="keys">
+        <div data-key="65" class="key">
+          <kbd>A</kbd>
+          <span>CLAP</span>
+        </div>
+        <div data-key="83" class="key">
+          <kbd>S</kbd>
+          <span>HIHAT</span>
+        </div>
+        <div data-key="68" class="key">
+          <kbd>D</kbd>
+          <span>KICK</span>
+        </div>
+        <div data-key="70" class="key">
+          <kbd>F</kbd>
+          <span>OPENHAT</span>
+        </div>
+        <div data-key="71" class="key">
+          <kbd>G</kbd>
+          <span>BOM</span>
+        </div>
+        <div data-key="72" class="key">
+          <kbd>H</kbd>
+          <span>RIDE</span>
+        </div>
+        <div data-key="74" class="key">
+          <kbd>J</kbd>
+          <span>SNARE</span>
+        </div>
+        <div data-key="75" class="key">
+          <kbd>K</kbd>
+          <span>TOM</span>
+        </div>
+        <div data-key="76" class="key">
+          <kbd>L</kbd>
+          <span>SNARE</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      function playSound(e) {
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+        key.classList.add("playing");
+      }
+
+      function removePlaying(e) {
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+        key.classList.remove("playing");
+      }
+
+      window.addEventListener("keydown", playSound);
+      window.addEventListener("keyup", removePlaying);
+    </script>
+  </body>
+</html>
